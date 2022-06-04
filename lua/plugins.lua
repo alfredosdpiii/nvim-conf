@@ -70,7 +70,7 @@ return require('packer').startup({
     -- General
     use { 'AndrewRadev/switch.vim' }
     use { 'AndrewRadev/splitjoin.vim' }
-    use { 'numToStr/Comment.nvim', config = "require('plugins.comment')" }
+    use { 'numToStr/Comment.nvim', branch = "jsx", config = "require('plugins.comment')" }
     use { 'LudoPinelli/comment-box.nvim' }
     use { 'akinsho/nvim-toggleterm.lua', branch = 'main', config = "require('plugins.toggleterm')" }
     use { 'tpope/vim-repeat' }
@@ -79,7 +79,7 @@ return require('packer').startup({
     use { 'dhruvasagar/vim-table-mode' }
     use { 'mg979/vim-visual-multi' }
     use { 'junegunn/vim-easy-align' }
-    use { 'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter' }
+    -- use { 'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter' }
     use { 'nacro90/numb.nvim', config = "require('plugins.numb')" }
     use { 'folke/todo-comments.nvim', config = "require('plugins.todo-comments')" }
     use { 'folke/zen-mode.nvim', config = "require('plugins.zen')", disable = not EcoVim.plugins.zen.enabled }
