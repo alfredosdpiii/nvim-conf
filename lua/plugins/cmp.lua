@@ -151,6 +151,11 @@ cmp.setup {
     { name = 'nvim_lua', priority = 5 },
     { name = 'path', priority = 4 },
     { name = 'calc', priority = 3 },
+    { name = 'emoji' },
+    { name = 'path'                            },
+    { name = 'rg'},
+    { name = 'vim-dadbod-completion' },
+    { name = 'treesitter' },
   },
 
   sorting = {

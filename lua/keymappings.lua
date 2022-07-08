@@ -1,6 +1,7 @@
 local keymap = vim.keymap.set
 local silent = { silent = true }
 
+local opts = { noremap = true, silent = true }
 -- Better window movement
 keymap("n", "<C-h>", "<C-w>h", silent)
 keymap("n", "<C-j>", "<C-w>j", silent)
@@ -63,6 +64,9 @@ keymap("n", "<A-6>", ":BufferGoto 6<CR>", silent)
 keymap("n", "<A-7>", ":BufferGoto 7<CR>", silent)
 keymap("n", "<A-8>", ":BufferGoto 8<CR>", silent)
 keymap("n", "<A-9>", ":BufferGoto 9<CR>", silent)
+--my buffer
+keymap("n", "<S-l>", ":bnext<CR>", opts)
+keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Don't yank on delete char
 keymap("n", "x", '"_x', silent)
@@ -123,3 +127,6 @@ keymap("n", "[g", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'round
 -- Comment Box
 keymap("n", "<leader>ac", "<cmd>lua require('comment-box').lbox()<CR>", silent)
 keymap("v", "<leader>ac", "<cmd>lua require('comment-box').lbox()<CR>", silent)
+
+--my keymaps
+keymap("n", "<leader>/", ":lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>", opts)

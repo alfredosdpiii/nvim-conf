@@ -10,10 +10,10 @@ local options = {
   ignorecase     = true,                    --- Needed for smartcase
   laststatus     = 3,                       --- Have a global statusline at the bottom instead of one for each window
   lazyredraw     = true,                    --- Makes macros faster & prevent errors in complicated mappings
-  mouse          = "a",                     --- Enable mouse
+  -- mouse          = "a",                     --- Enable mouse
   number         = true,                    --- Shows current line number
   pumheight      = 10,                      --- Max num of items in completion menu
-  relativenumber = true,                    --- Enables relative number
+  relativenumber = false,                    --- Enables relative number
   scrolloff      = 8,                       --- Always keep space when scrolling to bottom/top edge
   shiftwidth     = 2,                       --- Change a number of space characeters inseted for indentation
   showtabline    = 2,                       --- Always show tabs
@@ -31,7 +31,8 @@ local options = {
   updatetime     = 100,                     --- Faster completion
   viminfo        = "'1000",                 --- Increase the size of file history
   wildignore     = "*node_modules/**",      --- Don't search inside Node.js modules (works for gutentag)
-  wrap           = false,                   --- Display long lines as just one line
+  wrap           = true,                   --- Display long lines as just one line
+  linebreak      = true,
   writebackup    = false,                   --- Not needed
   -- Neovim defaults
   autoindent     = true,                    --- Good auto indent
@@ -55,6 +56,7 @@ vim.opt.shortmess:append('c');
 vim.opt.formatoptions:remove('c');
 vim.opt.formatoptions:remove('r');
 vim.opt.formatoptions:remove('o');
+vim.opt.shell = "/bin/bash"
 
 for k, v in pairs(options) do
   vim.opt[k] = v

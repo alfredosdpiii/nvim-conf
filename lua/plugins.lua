@@ -130,6 +130,20 @@ return require('packer').startup({
       },
       config = "require('plugins.neotest')"
     }
+        use {'andweeb/presence.nvim', config = "require('plugins.discord')"}
+
+    --tpope backend
+    use "tpope/vim-rails"
+    use "tpope/vim-endwise"
+    use "tpope/vim-rvm"
+    use "tpope/vim-dadbod"
+    use "tpope/vim-jdaddy"
+    use "tpope/vim-rake"
+    use "tpope/vim-bundler"
+    --git fugitive
+    use "tpope/vim-fugitive"
+    use 'eddyekofo94/gruvbox-flat.nvim'
+
 
     if packer_bootstrap then
       require('packer').sync()
