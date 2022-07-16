@@ -143,8 +143,8 @@ return require('packer').startup({
     --git fugitive
     use "tpope/vim-fugitive"
     use 'eddyekofo94/gruvbox-flat.nvim'
-
-
+    use 'hrsh7th/cmp-emoji'
+      
     if packer_bootstrap then
       require('packer').sync()
     end
