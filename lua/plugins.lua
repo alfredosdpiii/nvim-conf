@@ -144,7 +144,8 @@ return require('packer').startup({
     use "tpope/vim-fugitive"
     use 'eddyekofo94/gruvbox-flat.nvim'
     use 'hrsh7th/cmp-emoji'
-      
+    use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+
     if packer_bootstrap then
       require('packer').sync()
     end
