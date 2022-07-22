@@ -8,7 +8,7 @@ end
 
 lsp_installer.setup {
   -- A list of servers to automatically install if they're not already installed
-  ensure_installed = { "bashls", "cssls", "eslint", "graphql", "html", "jsonls", "sumneko_lua", "tailwindcss", "tsserver", "vetur", "vuels", "solagraph" },
+  ensure_installed = { "bashls", "cssls", "eslint", "graphql", "html", "jsonls", "sumneko_lua", "tailwindcss", "tsserver", "vetur", "vuels", "solargraph" },
   -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed
   automatic_installation = true,
 
@@ -85,6 +85,13 @@ lspconfig.vuels.setup {
   handlers = handlers,
   init_options = require('lsp.servers.vuels').init_options,
   on_attach = on_attach,
+}
+
+lspconfig.solargraph.setup {
+  capabilities = capabilities,
+  handlers = handlers,
+  on_attach = on_attach,
+  settings = require('lsp.servers.solargraph').settings
 }
 
 
