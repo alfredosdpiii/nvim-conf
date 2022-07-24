@@ -130,7 +130,7 @@ return require('packer').startup({
       },
       config = "require('plugins.neotest')"
     }
-        use {'andweeb/presence.nvim', config = "require('plugins.discord')"}
+    use { 'andweeb/presence.nvim', config = "require('plugins.discord')" }
 
     --tpope backend
     use "tpope/vim-rails"
@@ -145,6 +145,16 @@ return require('packer').startup({
     use 'eddyekofo94/gruvbox-flat.nvim'
     use 'hrsh7th/cmp-emoji'
     use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+    use 'ldelossa/litee-filetree.nvim'
+    use 'ldelossa/litee-symboltree.nvim'
+    use 'ldelossa/litee-calltree.nvim'
+    use 'ldelossa/litee-bookmarks.nvim'
+    use { 'ldelossa/litee.nvim', config = "require('plugins.litee')" }
+    use {
+      'ldelossa/gh.nvim',
+      requires = { { 'ldelossa/litee.nvim' },
+      }
+    }
 
     if packer_bootstrap then
       require('packer').sync()
