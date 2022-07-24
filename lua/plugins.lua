@@ -45,8 +45,15 @@ return require('packer').startup({
     use { 'kyazdani42/nvim-tree.lua', config = "require('plugins.tree')" }
 
     -- LSP Base
-    use { 'williamboman/nvim-lsp-installer' }
-    use { 'neovim/nvim-lspconfig' }
+    -- use { 'williamboman/nvim-lsp-installer' }
+    -- use { 'neovim/nvim-lspconfig' }
+    -- use { "williamboman/mason.nvim" }
+    -- use { "williamboman/mason-lspconfig.nvim" }
+    use { "williamboman/mason.nvim", config = "require('plugins.mason')" }
+    use { "williamboman/mason-lspconfig.nvim", config = "require('plugins.mason-lsp')" }
+    use {
+      "neovim/nvim-lspconfig",
+    }
 
     -- LSP Cmp
     use { 'hrsh7th/nvim-cmp', event = 'InsertEnter', config = "require('plugins.cmp')" }
