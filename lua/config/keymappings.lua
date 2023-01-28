@@ -131,3 +131,7 @@ end)
 -- Comment Box
 keymap("n", "<leader>ac", "<cmd>lua require('comment-box').lbox()<CR>", silent)
 keymap("v", "<leader>ac", "<cmd>lua require('comment-box').lbox()<CR>", silent)
+
+-- my keymaps
+keymap("i", "jk", "<Esc>", silent)
+keymap("n", "<leader>/", ":lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>", silent)
