@@ -99,9 +99,9 @@ local normal_mode_mappings = {
   ['V'] = { '<C-W>s',                                    'split below' },
   ['q'] = { 'quicklist' },
 
-  ['/'] = {
+  ['@'] = {
     name = 'Ecovim',
-    ['/'] = { '<cmd>Alpha<CR>',                                 'open dashboard' },
+    ['!'] = { '<cmd>Alpha<CR>',                                 'open dashboard' },
     c = { '<cmd>e $MYVIMRC<CR>',                                'open config' },
     i = { '<cmd>Lazy<CR>',                                      'manage plugins' },
     u = { '<cmd>Lazy update<CR>',                               'update plugins' },
@@ -225,11 +225,27 @@ local normal_mode_mappings = {
     s = { '<cmd>Telescope search_history theme=dropdown<CR>',            'search history' },
   },
 
-  t = {
+  T = {
     name = 'Table Mode',
     m = { 'toggle' },
     t = { 'tableize' },
   },
+   ["f"] = {
+    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+    "Find files",
+  },
+  ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+  t = {
+    name = "Terminal",
+    n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
+    u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
+    t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
+    p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
+    f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
+    h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
+    v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+  },
+
 }
 
 local visual_mode_mappings = {
@@ -264,22 +280,6 @@ local visual_mode_mappings = {
   T = {
     name = "Table Mode",
     t = { 'tableize' },
-  },
-
-   ["f"] = {
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Find files",
-  },
-  ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-  t = {
-    name = "Terminal",
-    n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-    u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-    t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-    p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
-    f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-    h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-    v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
 
 }
