@@ -246,6 +246,8 @@ local normal_mode_mappings = {
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
 
+  -- ["/"] = {"<cmd>Telescope current_buffer_fuzzy_find<cr>", "Find within buffer"},
+
 }
 
 local visual_mode_mappings = {
