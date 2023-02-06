@@ -245,10 +245,18 @@ return {
 		disable = not EcoVim.plugins.zen.enabled,
 	},
 	{ "folke/twilight.nvim", config = true, disable = not EcoVim.plugins.zen.enabled },
+	-- {
+	-- 	"ggandor/lightspeed.nvim",
+	-- 	config = function()
+	-- 		require("plugins.lightspeed")
+	-- 	end,
+	-- },
 	{
-		"ggandor/lightspeed.nvim",
+		"ggandor/leap.nvim",
+    lazy = false,
 		config = function()
-			require("plugins.lightspeed")
+      local leap = require("leap")
+      leap.add_default_mappings()
 		end,
 	},
 	{
@@ -494,8 +502,15 @@ return {
 
 	{
 		"epwalsh/obsidian.nvim",
+    lazy = false,
 		config = function()
-			require("plugins.obsidian")
+			local obs = require("obsidian")
+			obs.setup({
+				dir = "~/Documents/notes",
+				completion = {
+					nvim_cmp = true, -- if using nvim-cmp, otherwise set to false
+				},
+			})
 		end,
 	},
 }
