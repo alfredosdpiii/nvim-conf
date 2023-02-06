@@ -1,15 +1,15 @@
 return {
-  -- Themes
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      -- load the colorscheme here
-      vim.cmd([[colorscheme tokyonight]])
-      require("config.colorscheme")
-    end,
-  },
+	-- Themes
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			-- load the colorscheme here
+			vim.cmd([[colorscheme tokyonight]])
+			require("config.colorscheme")
+		end,
+	},
 
 	{ "nvim-lua/plenary.nvim" },
 	{
@@ -26,26 +26,26 @@ return {
 		end,
 	},
 
-  -- Treesitter
-  {
-    "nvim-treesitter/nvim-treesitter",
-    event = "BufReadPre",
-    config = function()
-      require("plugins.treesitter")
-    end,
-    dependencies = {
-      "mrjones2014/nvim-ts-rainbow",
-      "JoosepAlviste/nvim-ts-context-commentstring",
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      "RRethy/nvim-treesitter-textsubjects",
-      {
-        "m-demare/hlargs.nvim",
-        config = function()
-          require("hlargs").setup({ color = "#F7768E" })
-        end,
-      },
-    },
-  },
+	-- Treesitter
+	{
+		"nvim-treesitter/nvim-treesitter",
+		event = "BufReadPre",
+		config = function()
+			require("plugins.treesitter")
+		end,
+		dependencies = {
+			"mrjones2014/nvim-ts-rainbow",
+			"JoosepAlviste/nvim-ts-context-commentstring",
+			"nvim-treesitter/nvim-treesitter-textobjects",
+			"RRethy/nvim-treesitter-textsubjects",
+			{
+				"m-demare/hlargs.nvim",
+				config = function()
+					require("hlargs").setup({ color = "#F7768E" })
+				end,
+			},
+		},
+	},
 
 	-- Navigating (Telescope/Tree/Refactor)
 	{
@@ -77,72 +77,72 @@ return {
 		config = true, -- run require("stay-in-place").setup()
 	},
 
-  -- LSP Base
-  {
-    "neovim/nvim-lspconfig",
-    event = "BufReadPre",
-    dependencies = {
-      "mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
-      "hrsh7th/cmp-nvim-lsp",
-    },
-    servers = nil,
-  },
-  {
-    "williamboman/mason.nvim",
-    cmd = "Mason",
-    keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
-  },
+	-- LSP Base
+	{
+		"neovim/nvim-lspconfig",
+		event = "BufReadPre",
+		dependencies = {
+			"mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+			"hrsh7th/cmp-nvim-lsp",
+		},
+		servers = nil,
+	},
+	{
+		"williamboman/mason.nvim",
+		cmd = "Mason",
+		keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
+	},
 
-  -- Formatters
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    event = "BufReadPre",
-    dependencies = { "mason.nvim" },
-    config = function()
-      local nls = require("null-ls")
-      nls.setup({
-        sources = {
-          nls.builtins.formatting.prettierd,
-          nls.builtins.formatting.stylua,
-          nls.builtins.diagnostics.flake8,
-        },
-      })
-    end,
-  },
+	-- Formatters
+	{
+		"jose-elias-alvarez/null-ls.nvim",
+		event = "BufReadPre",
+		dependencies = { "mason.nvim" },
+		config = function()
+			local nls = require("null-ls")
+			nls.setup({
+				sources = {
+					nls.builtins.formatting.prettierd,
+					nls.builtins.formatting.stylua,
+					nls.builtins.diagnostics.flake8,
+				},
+			})
+		end,
+	},
 
-  -- LSP Cmp
-  {
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lua",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline",
-      "hrsh7th/cmp-calc",
-      "saadparwaiz1/cmp_luasnip",
-      { "tzachar/cmp-tabnine", build = "./install.sh" },
-      {
-        "David-Kunz/cmp-npm",
-        config = function()
-          require("plugins.cmp-npm")
-        end,
-      },
-      { "L3MON4D3/LuaSnip", dependencies = "rafamadriz/friendly-snippets" },
-      {
-        "zbirenbaum/copilot-cmp",
-        disable = not EcoVim.plugins.copilot.enabled,
-        config = function()
-          require("copilot_cmp").setup()
-        end,
-      },
-    },
-    config = function()
-      require("plugins.cmp")
-    end,
-  },
+	-- LSP Cmp
+	{
+		"hrsh7th/nvim-cmp",
+		event = "InsertEnter",
+		dependencies = {
+			"hrsh7th/cmp-nvim-lua",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+			"hrsh7th/cmp-calc",
+			"saadparwaiz1/cmp_luasnip",
+			{ "tzachar/cmp-tabnine", build = "./install.sh" },
+			{
+				"David-Kunz/cmp-npm",
+				config = function()
+					require("plugins.cmp-npm")
+				end,
+			},
+			{ "L3MON4D3/LuaSnip", dependencies = "rafamadriz/friendly-snippets" },
+			{
+				"zbirenbaum/copilot-cmp",
+				disable = not EcoVim.plugins.copilot.enabled,
+				config = function()
+					require("copilot_cmp").setup()
+				end,
+			},
+		},
+		config = function()
+			require("plugins.cmp")
+		end,
+	},
 
 	-- LSP Addons
 	{
@@ -374,33 +374,33 @@ return {
 		end,
 	}, ]]
 
-  -- Snippets & Language & Syntax
-  {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    config = function()
-      require("plugins.autopairs")
-    end,
-  },
-  {
-    "NvChad/nvim-colorizer.lua",
-    config = function()
-      require("plugins.colorizer")
-    end,
-  },
-  {
-    "zbirenbaum/copilot.lua",
-    disable = not EcoVim.plugins.copilot.enabled,
-    event = "InsertEnter",
-    config = true,
-  },
-  {
-    "jackMort/ChatGPT.nvim",
-    config = function()
-      require("chatgpt").setup()
-    end,
-    cmd = { "ChatGPT", "ChatGPTEditWithInstructions" },
-  },
+	-- Snippets & Language & Syntax
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = function()
+			require("plugins.autopairs")
+		end,
+	},
+	{
+		"NvChad/nvim-colorizer.lua",
+		config = function()
+			require("plugins.colorizer")
+		end,
+	},
+	{
+		"zbirenbaum/copilot.lua",
+		disable = not EcoVim.plugins.copilot.enabled,
+		event = "InsertEnter",
+		config = true,
+	},
+	{
+		"jackMort/ChatGPT.nvim",
+		config = function()
+			require("chatgpt").setup()
+		end,
+		cmd = { "ChatGPT", "ChatGPTEditWithInstructions" },
+	},
 
 	-- Git
 	{
@@ -442,19 +442,19 @@ return {
 		end,
 	},
 
-  -- Testing
-  {
-    "rcarriga/neotest",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "antoinemadec/FixCursorHold.nvim",
-      "haydenmeade/neotest-jest",
-    },
-    config = function()
-      require("plugins.neotest")
-    end,
-  },
+	-- Testing
+	{
+		"rcarriga/neotest",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"antoinemadec/FixCursorHold.nvim",
+			"haydenmeade/neotest-jest",
+		},
+		config = function()
+			require("plugins.neotest")
+		end,
+	},
 
 	-- DAP
 	{
@@ -479,22 +479,23 @@ return {
 		},
 	},
 
-  { "jay-babu/mason-null-ls.nvim",
-    event = "BufReadPre",
-    dependencies = { "mason.nvim" },
-    config = function()
-      local mnls = require('mason-null-ls')
-      mnls.setup({
-        automatic_setup = true,
-        ensure_installed = { "stylua", "jq", "prettierd"
-        }
-      })
-    end
-  },
+	{
+		"jay-babu/mason-null-ls.nvim",
+		event = "BufReadPre",
+		dependencies = { "mason.nvim" },
+		config = function()
+			local mnls = require("mason-null-ls")
+			mnls.setup({
+				automatic_setup = true,
+				ensure_installed = { "stylua", "jq", "prettierd" },
+			})
+		end,
+	},
 
-  { "epwalsh/obsidian.nvim",
-    config = function()
-      require("plugins.obsidian")
-    end
-  },
+	{
+		"epwalsh/obsidian.nvim",
+		config = function()
+			require("plugins.obsidian")
+		end,
+	},
 }

@@ -167,6 +167,7 @@ cmp.setup {
     { name = 'nvim_lua', priority = 5 },
     { name = 'path', priority = 4 },
     { name = 'calc', priority = 3 },
+    { name = "obsidian", priority = 3 },
   },
 
   sorting = {
