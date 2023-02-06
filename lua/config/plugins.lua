@@ -494,13 +494,7 @@ return {
 
   { "epwalsh/obsidian.nvim",
     config = function()
-      local obsnvm = require('mason-null-ls')
-      obsnvm.setup({
-        dir = "~/Documents/notes/",
-        completion = {
-          nvim_cmp = true,
-        },
-      })
+      require("plugins.obsidian")
     end
   },
 }
