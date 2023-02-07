@@ -253,10 +253,10 @@ return {
 	-- },
 	{
 		"ggandor/leap.nvim",
-    lazy = false,
+		lazy = false,
 		config = function()
-      local leap = require("leap")
-      leap.add_default_mappings()
+			local leap = require("leap")
+			leap.add_default_mappings()
 		end,
 	},
 	{
@@ -502,7 +502,7 @@ return {
 
 	{
 		"epwalsh/obsidian.nvim",
-    lazy = false,
+		lazy = false,
 		config = function()
 			local obs = require("obsidian")
 			obs.setup({
@@ -513,4 +513,14 @@ return {
 			})
 		end,
 	},
+
+	{
+		"tpope/vim-dadbod",
+		lazy = false,
+	},
+
+  {
+    "kristijanhusak/vim-dadbod-ui",
+    lazy = false,
+  }
 }
