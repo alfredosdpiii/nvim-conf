@@ -519,8 +519,23 @@ return {
 		lazy = false,
 	},
 
-  {
-    "kristijanhusak/vim-dadbod-ui",
-    lazy = false,
-  }
+	{
+		"kristijanhusak/vim-dadbod-ui",
+		lazy = false,
+	},
+
+	{
+		"da-moon/telescope-toggleterm.nvim",
+		lazy = false,
+		event = "TermOpen",
+		dependencies = {
+			"akinsho/nvim-toggleterm.lua",
+			"nvim-telescope/telescope.nvim",
+			"nvim-lua/popup.nvim",
+			"nvim-lua/plenary.nvim",
+		},
+		config = function()
+			require("telescope-toggleterm").setup()
+		end,
+	},
 }
