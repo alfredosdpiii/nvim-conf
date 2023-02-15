@@ -1,16 +1,15 @@
 return {
 	-- Themes
-	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
+  {
+		"arturgoms/moonbow.nvim",
+    lazy = false,
+    priority = 1000,
 		config = function()
 			-- load the colorscheme here
-			vim.cmd([[colorscheme tokyonight]])
-			require("config.colorscheme")
+			vim.cmd([[colorscheme moonbow]])
+      require("config.colorscheme")
 		end,
 	},
-
 	{ "nvim-lua/plenary.nvim" },
 	{
 		"nvim-tree/nvim-web-devicons",
