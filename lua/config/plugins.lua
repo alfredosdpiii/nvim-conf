@@ -238,6 +238,7 @@ return {
 	},
 	{
 		"folke/zen-mode.nvim",
+		cmd = { "ZenMode" },
 		config = function()
 			require("plugins.zen")
 		end,
@@ -290,7 +291,7 @@ return {
 			})
 		end,
 		init = function()
-			local banned_messages = { "No information available" }
+			local banned_messages = { "No information available", "LSP[tsserver] Inlay Hints request failed. Requires TypeScript 4.4+." }
 			vim.notify = function(msg, ...)
 				for _, banned in ipairs(banned_messages) do
 					if msg == banned then
@@ -362,6 +363,7 @@ return {
 	},
 	{
 		"rareitems/printer.nvim",
+    lazy = false,
 		config = function()
 			require("plugins.printer")
 		end,
@@ -373,13 +375,6 @@ return {
 			require("plugins.indent")
 		end,
 	},
-	--[[ {
-		"echasnovski/mini.indentscope",
-		event = "BufReadPre",
-		config = function()
-			require("mini.indentscope").setup()
-		end,
-	}, ]]
 
 	-- Snippets & Language & Syntax
 	{
