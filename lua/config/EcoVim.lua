@@ -1,12 +1,12 @@
 ------------------------------------------------
 --                                            --
---    This is a main configuation file for    --
+--    This is a main configuration file for    --
 --                    EcoVim                  --
 --      Change variables which you need to    --
 --                                            --
 ------------------------------------------------
 
-local icons = require('utils.icons')
+local icons = require("utils.icons")
 
 EcoVim = {
   colorscheme = 'moonbow',
@@ -41,4 +41,3 @@ EcoVim = {
     virtual_text = true, -- show virtual text (errors, warnings, info) inline messages
   },
 }
-
