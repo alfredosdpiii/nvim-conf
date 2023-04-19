@@ -31,7 +31,7 @@ keymap("n", "<C-p>", "<CMD>lua require('plugins.telescope').project_files()<CR>"
 keymap("n", "<S-p>", "<CMD>lua require('plugins.telescope.pickers.multi-rg')()<CR>")
 
 -- Remove highlights
-keymap("n", "<CR>", ":noh<CR><CR>", silent)
+-- keymap("n", "<CR>", ":noh<CR><CR>", silent)
 
 -- Find word/file across project
 keymap("n", "<Leader>pf",
@@ -132,3 +132,5 @@ keymap("v", "<leader>ac", "<cmd>lua require('comment-box').lbox()<CR>", silent)
 keymap("i", "jk", "<Esc>", silent)
 
 keymap("n", "<leader>.", "<cmd>Telescope current_buffer_fuzzy_find<cr>", silent)
+
+keymap("n", "<leader>k", function() require("pretty_hover").hover() end)
