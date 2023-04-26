@@ -93,10 +93,10 @@ local normal_mode_mappings = {
   ['9'] = 'which_key_ignore',
 
   -- single
-  ['='] = { '<cmd>vertical resize +5<CR>',               'resize +5' },
-  ['-'] = { '<cmd>vertical resize -5<CR>',               'resize +5' },
-  ['v'] = { '<C-W>v',                                    'split right' },
-  ['V'] = { '<C-W>s',                                    'split below' },
+  ['='] = { '<cmd>vertical resize +5<CR>',                      'resize +5' },
+  ['-'] = { '<cmd>vertical resize -5<CR>',                      'resize +5' },
+  ['v'] = { '<C-W>v',                                           'split right' },
+  ['V'] = { '<C-W>s',                                           'split below' },
   ['q'] = { 'quicklist' },
 
   ['@'] = {
@@ -152,14 +152,18 @@ local normal_mode_mappings = {
     a = { 'attach' },
     b = { 'breakpoint' },
     c = { 'continue' },
+    C = { 'close UI' },
     d = { 'continue' },
     h = { 'visual hover' },
     i = { 'step into' },
     o = { 'step over' },
     O = { 'step out' },
+    r = { 'repl' },
+    s = { 'scopes' },
     t = { 'terminate' },
     v = { 'log variable' },
     V = { 'log variable above' },
+    w = { 'watches' },
   },
 
   g = {
@@ -313,6 +317,7 @@ local function attach_typescript(bufnr)
   wk.register({
     c = {
       name = "LSP",
+      e = { '<cmd>TSC<CR>',                                'workspace errors (TSC)'},
       F = { '<cmd>TypescriptFixAll<CR>',                   'fix all' },
       i = { '<cmd>TypescriptAddMissingImports<CR>',        'import all'},
       o = { '<cmd>TypescriptOrganizeImports<CR>',          'organize imports'},

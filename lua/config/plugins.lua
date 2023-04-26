@@ -206,6 +206,33 @@ return {
     },
     config = true,
   },
+	{
+		"dmmulroy/tsc.nvim",
+		cmd = { "TSC" },
+		config = true,
+	},
+	{
+		"dnlhc/glance.nvim",
+		config = true,
+		opts = {
+			hooks = {
+				before_open = function(results, open, jump, method)
+					if #results == 1 then
+						jump(results[1]) -- argument is optional
+					else
+						open(results) -- argument is optional
+					end
+				end,
+			},
+		},
+		cmd = { "Glance" },
+		keys = {
+			{ "gd", "<cmd>Glance definitions<CR>", desc = "LSP Definition" },
+			{ "gr", "<cmd>Glance references<CR>", desc = "LSP References" },
+			{ "gm", "<cmd>Glance implementations<CR>", desc = "LSP Implementations" },
+			{ "gy", "<cmd>Glance type_definitions<CR>", desc = "LSP Type Definitions" },
+		},
+	},
 
   -- General
   { "AndrewRadev/switch.vim",            lazy = false },
@@ -337,7 +364,7 @@ return {
             return
           end
         end
-        require("notify")(msg, ...)
+        return require("notify")(msg, ...)
       end
     end,
   },
@@ -423,6 +450,24 @@ return {
       require("plugins.noice")
     end,
   },
+	{
+		"chrisgrieser/nvim-spider",
+		cond = EcoVim.plugins.jump_by_subwords.enabled,
+		lazy = true,
+		keys = { "w", "e", "b", "ge" },
+		config = function()
+			vim.keymap.set({ "n", "o", "x" }, "W", "w", { desc = "Normal w" })
+			vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+			vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
+			vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+			vim.keymap.set(
+				{ "n", "o", "x" },
+				"ge",
+				"<cmd>lua require('spider').motion('ge')<CR>",
+				{ desc = "Spider-ge" }
+			)
+		end,
+	},
 
   -- Snippets & Language & Syntax
   {
@@ -439,37 +484,51 @@ return {
     end,
   },
 
-  -- AI
-  {
-    "jcdickinson/codeium.nvim",
-    cond = EcoVim.plugins.ai.codeium.enabled,
-    event = "InsertEnter",
-    cmd = "Codeium",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
-    },
-    config = true,
-  },
-  {
-    "zbirenbaum/copilot.lua",
-    cond = EcoVim.plugins.ai.copilot.enabled,
-    event = "InsertEnter",
-    config = function()
-      require("plugins.copilot")
-    end,
-  },
-  {
-    "jackMort/ChatGPT.nvim",
-    cond = EcoVim.plugins.ai.chatgpt.enabled,
-    config = function()
-      require("plugins.chat-gpt")
-    end,
-    cmd = {
-      "ChatGPT",
-      "ChatGPTEditWithInstructions",
-    },
-  },
+	-- AI
+	{
+		"jcdickinson/codeium.nvim",
+		cond = EcoVim.plugins.ai.codeium.enabled,
+		event = "InsertEnter",
+		cmd = "Codeium",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"hrsh7th/nvim-cmp",
+		},
+		config = true,
+	},
+	{
+		"zbirenbaum/copilot.lua",
+		cond = EcoVim.plugins.ai.copilot.enabled,
+		event = "InsertEnter",
+		config = function()
+			require("plugins.copilot")
+		end,
+	},
+	{
+		"Bryley/neoai.nvim",
+		cond = EcoVim.plugins.ai.chatgpt.enabled,
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+		},
+		cmd = {
+			"NeoAI",
+			"NeoAIOpen",
+			"NeoAIClose",
+			"NeoAIToggle",
+			"NeoAIContext",
+			"NeoAIContextOpen",
+			"NeoAIContextClose",
+			"NeoAIInject",
+			"NeoAIInjectCode",
+			"NeoAIInjectContext",
+			"NeoAIInjectContextCode",
+		},
+		keys = {
+			{ "<leader>as", desc = "summarize text" },
+			{ "<leader>ag", desc = "generate git message" },
+		},
+		config = true,
+	},
 
   -- Git
   {
