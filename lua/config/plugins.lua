@@ -655,4 +655,8 @@ return {
     event = "LspAttach",
     opts = {}
   },
+
+  {
+    "davidosomething/format-ts-errors.nvim"
+  },
 }
