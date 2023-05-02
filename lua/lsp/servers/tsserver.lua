@@ -82,46 +82,9 @@ end
 local handlers = {
   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = EcoVim.ui.float.border }),
   ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = EcoVim.ui.float.border }),
-  -- ["textDocument/publishDiagnostics"] = vim.lsp.with(
-  -- 	vim.lsp.diagnostic.on_publish_diagnostics,
-  -- 	{ virtual_text = EcoVim.lsp.virtual_text }
-  -- ),
   ["textDocument/publishDiagnostics"] = vim.lsp.with(
-    function(
-      _,
-      result,
-      ctx,
-      config
-    )
-      if result.diagnostics == nil then
-        return
-      end
-
-      -- ignore some tsserver diagnostics
-      local idx = 1
-      while idx <= #result.diagnostics do
-        local entry = result.diagnostics[idx]
-
-        local formatter = require('format-ts-errors')[entry.code]
-        entry.message = formatter and formatter(entry.message) or entry.message
-
-        -- codes: https://github.com/microsoft/TypeScript/blob/main/src/compiler/diagnosticMessages.json
-        if entry.code == 80001 then
-          -- { message = "File is a CommonJS module; it may be converted to an ES module.", }
-          table.remove(result.diagnostics, idx)
-        else
-          idx = idx + 1
-        end
-      end
-
-      vim.lsp.diagnostic.on_publish_diagnostics(
-        _,
-        result,
-        ctx,
-        config
-      )
-    end,
-    { virtual_text = EcoVim.lsp.virtual_text }
+  	vim.lsp.diagnostic.on_publish_diagnostics,
+  	{ virtual_text = EcoVim.lsp.virtual_text }
   ),
   ["textDocument/definition"] = function(err, result, method, ...)
     if vim.tbl_islist(result) and #result > 1 then
