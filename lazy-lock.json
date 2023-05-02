@@ -54,6 +54,7 @@
   "nvim-dap": { "branch": "master", "commit": "6cedcb527e264c8f25e86afa8dae74c6692dee51" },
   "nvim-dap-ui": { "branch": "master", "commit": "286f682f366fbc652b38dff893569374e9433dd3" },
   "nvim-dap-virtual-text": { "branch": "master", "commit": "ab988dbb7d20cdaebf9b3ef7554a89f6895de042" },
+  "nvim-dap-vscode-js": { "branch": "main", "commit": "03bd29672d7fab5e515fc8469b7d07cc5994bbf6" },
   "nvim-lspconfig": { "branch": "master", "commit": "427378a03ffc1e1bc023275583a49b1993e524d0" },
   "nvim-navic": { "branch": "master", "commit": "83dc174da915f9dbc9b51169e9b62a2e0d42b527" },
   "nvim-notify": { "branch": "master", "commit": "159c6cf1be25a933f35e97499314c9faab55c98f" },
@@ -99,4 +100,3 @@
   "vim-visual-multi": { "branch": "master", "commit": "724bd53adfbaf32e129b001658b45d4c5c29ca1a" },
   "which-key.nvim": { "branch": "main", "commit": "4acffc92953a90a790603bfdab7c92319ab167b1" },
   "zen-mode.nvim": { "branch": "main", "commit": "6e6c963d70a8e47854fa656987666bfb863f9c4e" }
-}
