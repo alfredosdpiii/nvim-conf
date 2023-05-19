@@ -10,7 +10,7 @@ local c = require("tokyonight.colors").setup()
 -- ╰──────────────────────────────────────────────────────────╯
 tokyonight.setup({
   style = "night",
-  transparent = false,   -- Enable this to disable setting the background color
+  transparent = false,    -- Enable this to disable setting the background color
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
   styles = {
     -- Style to be applied to different syntax groups
@@ -20,14 +20,14 @@ tokyonight.setup({
     functions = "NONE",
     variables = "NONE",
     -- Background styles. Can be "dark", "transparent" or "normal"
-    sidebars = "dark",             -- style for sidebars, see below
-    floats = "dark",               -- style for floating windows
+    sidebars = "dark",              -- style for sidebars, see below
+    floats = "dark",                -- style for floating windows
   },
-  sidebars = { "qf", "help" },     -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
-  day_brightness = 0.3,            -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
+  sidebars = { "qf", "help" },      -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
+  day_brightness = 0.3,             -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
   hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
-  dim_inactive = false,            -- dims inactive windows
-  lualine_bold = false,            -- When `true`, section headers in the lualine theme will be bold
+  dim_inactive = false,             -- dims inactive windows
+  lualine_bold = false,             -- When `true`, section headers in the lualine theme will be bold
   --- You can override specific color groups to use other groups or a hex color
   --- function will be called with a ColorScheme table
   on_colors = function(colors)
@@ -36,7 +36,7 @@ tokyonight.setup({
   --- You can override specific highlights to use other groups or a hex color
   --- function will be called with a Highlights and ColorScheme table
   -- on_highlights = function(highlights, colors) end,
-  on_highlights = function(hl, c)
+  on_highlights = function(hl, _color)
     local prompt = "#FFA630"
     local text = "#488dff"
     local none = "NONE"
@@ -75,6 +75,8 @@ vim.api.nvim_set_hl(0, "EcovimHeader", { bold = true, fg = "#488DFF" })
 vim.api.nvim_set_hl(0, "EcovimHeaderInfo", { bold = true, fg = "#FFA630" })
 vim.api.nvim_set_hl(0, "EcovimFooter", { bold = true, fg = "#FFA630" })
 
+vim.api.nvim_set_hl(0, "EcovimNvimTreeTitle", { bold = true, fg = "#FFA630", bg = "#16161e" })
+
 -- Tokyonight Colorscheme Specific Config
 if EcoVim.colorscheme == "tokyonight" then
   -- Lines
@@ -89,6 +91,7 @@ if EcoVim.colorscheme == "tokyonight" then
   vim.api.nvim_set_hl(0, "VertSplit", { bg = "#16161e", fg = "#16161e" })
   vim.api.nvim_set_hl(0, "BqfPreviewBorder", { link = "FloatBorder" })
   vim.api.nvim_set_hl(0, "BufferInactiveIndex", { link = "BufferInactive" })
+  vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "FloatBorder" })
 
   -- Tree
   vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", { bg = "None", fg = "None" })
@@ -102,6 +105,13 @@ if EcoVim.colorscheme == "tokyonight" then
   vim.api.nvim_set_hl(0, "rainbowcol1", { fg = c.blue, ctermfg = 9 })
   vim.api.nvim_set_hl(0, "Boolean", { fg = "#F7768E" })
   vim.api.nvim_set_hl(0, "BufferOffset", { link = "EcovimSecondary" })
+
+  -- Bufferline
+  vim.api.nvim_set_hl(0, "BufferCurrentSign", { fg = c.cyan0 })
+  vim.api.nvim_set_hl(0, "BufferInactiveSign", { bg = "#202331", fg = c.dark3 })
+  vim.api.nvim_set_hl(0, "BufferInactiveMod", { bg = "NONE", fg = c.yellow })
+
+  vim.api.nvim_set_hl(0, "BufferLineOffsetSeparator", { bg = "#16161e", fg = "#16161e" })
 
   -- Completion Menu Colors
   local highlights = {
