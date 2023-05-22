@@ -234,251 +234,251 @@ return {
     },
   },
 
-	-- General
-	{ "AndrewRadev/switch.vim", lazy = false },
-	{
-		"Wansmer/treesj",
-		lazy = true,
-		cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
-		keys = {
-			{ "gJ", "<cmd>TSJToggle<CR>", desc = "Toggle Split/Join" },
-		},
-		config = function()
-			require("treesj").setup({
-				use_default_keymaps = false,
-			})
-		end,
-	},
-	{
-		"numToStr/Comment.nvim",
-		lazy = false,
-		branch = "jsx",
-		config = function()
-			require("plugins.comment")
-		end,
-	},
-	{ "LudoPinelli/comment-box.nvim" },
-	{
-		"akinsho/nvim-toggleterm.lua",
-		lazy = false,
-		branch = "main",
-		config = function()
-			require("plugins.toggleterm")
-		end,
-	},
-	{ "tpope/vim-repeat", lazy = false },
-	{ "tpope/vim-speeddating", lazy = false },
-	{ "dhruvasagar/vim-table-mode", ft = { "markdown" } },
-	{
-		"mg979/vim-visual-multi",
-		keys = {
-			"<C-n>",
-			"<C-Up>",
-			"<C-Down>",
-			"<S-Up>",
-			"<S-Down>",
-			"<S-Left>",
-			"<S-Right>",
-		},
-		config = function()
-			vim.g.VM_leader = ";"
-		end,
-	},
-	{
-		"nacro90/numb.nvim",
-		lazy = false,
-		config = function()
-			require("plugins.numb")
-		end,
-	},
-	{
-		"folke/todo-comments.nvim",
-		lazy = false,
-		event = "BufEnter",
-		config = function()
-			require("plugins.todo-comments")
-		end,
-	},
-	{
-		"folke/zen-mode.nvim",
-		cmd = { "ZenMode" },
-		config = function()
-			require("plugins.zen")
-		end,
-		cond = EcoVim.plugins.zen.enabled,
-	},
-	{
-		"folke/twilight.nvim",
-		config = true,
-		cond = EcoVim.plugins.zen.enabled,
-	},
-	{
-		"ggandor/lightspeed.nvim",
-		keys = "s",
-		config = function()
-			require("plugins.lightspeed")
-		end,
-	},
-	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		lazy = true,
-		config = function()
-			require("plugins.which-key")
-		end,
-	},
-	{
-		"ecosse3/galaxyline.nvim",
-		config = function()
-			require("plugins.galaxyline")
-		end,
-		event = "VeryLazy",
-	},
-	{
-		"echasnovski/mini.bufremove",
-		version = "*",
-		config = function()
-			require("mini.bufremove").setup({
-				silent = true,
-			})
-		end,
-	},
-	{
-		"akinsho/bufferline.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-			"echasnovski/mini.bufremove",
-		},
-		version = "*",
-		config = function()
-			require("plugins.bufferline")
-		end,
-	},
-	{ "antoinemadec/FixCursorHold.nvim" }, -- Needed while issue https://github.com/neovim/neovim/issues/12587 is still open
-	{
-		"rcarriga/nvim-notify",
-		config = function()
-			require("notify").setup({
-				background_colour = "#000000",
-			})
-		end,
-		init = function()
-			local banned_messages = {
-				"No information available",
-				"LSP[tsserver] Inlay Hints request failed. Requires TypeScript 4.4+.",
-				"LSP[tsserver] Inlay Hints request failed. File not opened in the editor.",
-			}
-			vim.notify = function(msg, ...)
-				for _, banned in ipairs(banned_messages) do
-					if msg == banned then
-						return
-					end
-				end
-				return require("notify")(msg, ...)
-			end
-		end,
-	},
-	{
-		"vuki656/package-info.nvim",
-		event = "BufEnter package.json",
-		config = function()
-			require("plugins.package-info")
-		end,
-	},
-	{
-		"iamcco/markdown-preview.nvim",
-		build = "cd app && npm install",
-		setup = function()
-			vim.g.mkdp_filetypes = { "markdown" }
-		end,
-		ft = { "markdown" },
-	},
-	{
-		"airblade/vim-rooter",
-		setup = function()
-			vim.g.rooter_patterns = EcoVim.plugins.rooter.patterns
-		end,
-	},
-	{
-		"Shatur/neovim-session-manager",
-		lazy = false,
-		config = function()
-			require("plugins.session-manager")
-		end,
-	},
-	{ "kylechui/nvim-surround", lazy = false, config = true },
-	{
-		"sunjon/shade.nvim",
-		config = function()
-			require("shade").setup()
-			require("shade").toggle()
-		end,
-	},
-	{
-		"kevinhwang91/nvim-ufo",
-		dependencies = "kevinhwang91/promise-async",
-		config = function()
-			vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-			vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-			vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
-		end,
-	},
-	{
-		"echasnovski/mini.align",
-		lazy = false,
-		version = false,
-		config = function()
-			require("mini.align").setup()
-		end,
-	},
-	{
-		"rareitems/printer.nvim",
-		event = "BufEnter",
-		ft = {
-			"lua",
-			"javascript",
-			"typescript",
-			"javascriptreact",
-			"typescriptreact",
-		},
-		config = function()
-			require("plugins.printer")
-		end,
-	},
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		event = "BufReadPre",
-		config = function()
-			require("plugins.indent")
-		end,
-	},
-	{
-		"folke/noice.nvim",
-		cond = EcoVim.plugins.experimental_noice.enabled,
-		lazy = false,
-		config = function()
-			require("plugins.noice")
-		end,
-	},
-	{
-		"chrisgrieser/nvim-spider",
-		cond = EcoVim.plugins.jump_by_subwords.enabled,
-		lazy = true,
-		keys = { "w", "e", "b", "ge" },
-		config = function()
-			vim.keymap.set({ "n", "o", "x" }, "W", "w", { desc = "Normal w" })
-			vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
-			vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
-			vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
-			vim.keymap.set(
-				{ "n", "o", "x" },
-				"ge",
-				"<cmd>lua require('spider').motion('ge')<CR>",
-				{ desc = "Spider-ge" }
-			)
-		end,
-	},
+  -- General
+  { "AndrewRadev/switch.vim",            lazy = false },
+  {
+    "Wansmer/treesj",
+    lazy = true,
+    cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
+    keys = {
+      { "gJ", "<cmd>TSJToggle<CR>", desc = "Toggle Split/Join" },
+    },
+    config = function()
+      require("treesj").setup({
+        use_default_keymaps = false,
+      })
+    end,
+  },
+  {
+    "numToStr/Comment.nvim",
+    lazy = false,
+    branch = "jsx",
+    config = function()
+      require("plugins.comment")
+    end,
+  },
+  { "LudoPinelli/comment-box.nvim" },
+  {
+    "akinsho/nvim-toggleterm.lua",
+    lazy = false,
+    branch = "main",
+    config = function()
+      require("plugins.toggleterm")
+    end,
+  },
+  { "tpope/vim-repeat",            lazy = false },
+  { "tpope/vim-speeddating",       lazy = false },
+  { "dhruvasagar/vim-table-mode",  ft = { "markdown" } },
+  {
+    "mg979/vim-visual-multi",
+    keys = {
+      "<C-n>",
+      "<C-Up>",
+      "<C-Down>",
+      "<S-Up>",
+      "<S-Down>",
+      "<S-Left>",
+      "<S-Right>",
+    },
+    config = function()
+      vim.g.VM_leader = ";"
+    end,
+  },
+  {
+    "nacro90/numb.nvim",
+    lazy = false,
+    config = function()
+      require("plugins.numb")
+    end,
+  },
+  {
+    "folke/todo-comments.nvim",
+    lazy = false,
+    event = "BufEnter",
+    config = function()
+      require("plugins.todo-comments")
+    end,
+  },
+  {
+    "folke/zen-mode.nvim",
+    cmd = { "ZenMode" },
+    config = function()
+      require("plugins.zen")
+    end,
+    cond = EcoVim.plugins.zen.enabled,
+  },
+  {
+    "folke/twilight.nvim",
+    config = true,
+    cond = EcoVim.plugins.zen.enabled,
+  },
+  {
+    "ggandor/lightspeed.nvim",
+    keys = "s",
+    config = function()
+      require("plugins.lightspeed")
+    end,
+  },
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    lazy = true,
+    config = function()
+      require("plugins.which-key")
+    end,
+  },
+  {
+    "ecosse3/galaxyline.nvim",
+    config = function()
+      require("plugins.galaxyline")
+    end,
+    event = "VeryLazy",
+  },
+  {
+    "echasnovski/mini.bufremove",
+    version = "*",
+    config = function()
+      require("mini.bufremove").setup({
+        silent = true,
+      })
+    end,
+  },
+  {
+    "akinsho/bufferline.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+      "echasnovski/mini.bufremove",
+    },
+    version = "*",
+    config = function()
+      require("plugins.bufferline")
+    end,
+  },
+  { "antoinemadec/FixCursorHold.nvim" }, -- Needed while issue https://github.com/neovim/neovim/issues/12587 is still open
+  {
+    "rcarriga/nvim-notify",
+    config = function()
+      require("notify").setup({
+        background_colour = "#000000",
+      })
+    end,
+    init = function()
+      local banned_messages = {
+        "No information available",
+        "LSP[tsserver] Inlay Hints request failed. Requires TypeScript 4.4+.",
+        "LSP[tsserver] Inlay Hints request failed. File not opened in the editor.",
+      }
+      vim.notify = function(msg, ...)
+        for _, banned in ipairs(banned_messages) do
+          if msg == banned then
+            return
+          end
+        end
+        return require("notify")(msg, ...)
+      end
+    end,
+  },
+  {
+    "vuki656/package-info.nvim",
+    event = "BufEnter package.json",
+    config = function()
+      require("plugins.package-info")
+    end,
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    build = "cd app && npm install",
+    setup = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+  },
+  {
+    "airblade/vim-rooter",
+    setup = function()
+      vim.g.rooter_patterns = EcoVim.plugins.rooter.patterns
+    end,
+  },
+  {
+    "Shatur/neovim-session-manager",
+    lazy = false,
+    config = function()
+      require("plugins.session-manager")
+    end,
+  },
+  { "kylechui/nvim-surround",         lazy = false, config = true },
+  {
+    "sunjon/shade.nvim",
+    config = function()
+      require("shade").setup()
+      require("shade").toggle()
+    end,
+  },
+  {
+    "kevinhwang91/nvim-ufo",
+    dependencies = "kevinhwang91/promise-async",
+    config = function()
+      vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+      vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+      vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
+    end,
+  },
+  {
+    "echasnovski/mini.align",
+    lazy = false,
+    version = false,
+    config = function()
+      require("mini.align").setup()
+    end,
+  },
+  {
+    "rareitems/printer.nvim",
+    event = "BufEnter",
+    ft = {
+      "lua",
+      "javascript",
+      "typescript",
+      "javascriptreact",
+      "typescriptreact",
+    },
+    config = function()
+      require("plugins.printer")
+    end,
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    event = "BufReadPre",
+    config = function()
+      require("plugins.indent")
+    end,
+  },
+  {
+    "folke/noice.nvim",
+    cond = EcoVim.plugins.experimental_noice.enabled,
+    lazy = false,
+    config = function()
+      require("plugins.noice")
+    end,
+  },
+  {
+    "chrisgrieser/nvim-spider",
+    cond = EcoVim.plugins.jump_by_subwords.enabled,
+    lazy = true,
+    keys = { "w", "e", "b", "ge" },
+    config = function()
+      vim.keymap.set({ "n", "o", "x" }, "W", "w", { desc = "Normal w" })
+      vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+      vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
+      vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+      vim.keymap.set(
+        { "n", "o", "x" },
+        "ge",
+        "<cmd>lua require('spider').motion('ge')<CR>",
+        { desc = "Spider-ge" }
+      )
+    end,
+  },
 
   -- Snippets & Language & Syntax
   {
@@ -639,18 +639,18 @@ return {
     dependencies = {
       "theHamsta/nvim-dap-virtual-text",
       "rcarriga/nvim-dap-ui",
-			"mxsdev/nvim-dap-vscode-js",
-		},
-	},
-	{
-		"LiadOz/nvim-dap-repl-highlights",
-		config = true,
-		dependencies = {
-			"mfussenegger/nvim-dap",
-		},
-		build = {
-			":TSInstall dap_repl",
-			":TSUpdate dap_repl",
+      "mxsdev/nvim-dap-vscode-js",
+    },
+  },
+  {
+    "LiadOz/nvim-dap-repl-highlights",
+    config = true,
+    dependencies = {
+      "mfussenegger/nvim-dap",
+    },
+    build = {
+      ":TSInstall dap_repl",
+      ":TSUpdate dap_repl",
     },
   },
 
@@ -742,6 +742,14 @@ return {
     'dmmulroy/tsc.nvim',
     config = function()
       require('tsc').setup()
+    end
+  },
+
+  {
+    'numToStr/Navigator.nvim',
+    lazy = false,
+    config = function()
+      require('Navigator').setup()
     end
   },
 }
