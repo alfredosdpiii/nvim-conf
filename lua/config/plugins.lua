@@ -4,9 +4,19 @@ return {
     "arturgoms/moonbow.nvim",
     lazy = false,
     priority = 1000,
+    -- config = function()
+    --   -- load the colorscheme here
+    --   vim.cmd([[colorscheme moonbow]])
+    --   require("config.colorscheme")
+    -- end,
+  },
+  {
+    'nyngwang/nvimgelion',
+    lazy = false,
+    priority = 1000,
     config = function()
       -- load the colorscheme here
-      vim.cmd([[colorscheme moonbow]])
+      vim.cmd([[colorscheme nvimgelion]])
       require("config.colorscheme")
     end,
   },
@@ -750,6 +760,17 @@ return {
     lazy = false,
     config = function()
       require('Navigator').setup()
+    end
+  },
+  {
+    'AckslD/muren.nvim',
+    lazy = false,
+    config = function()
+      require('muren').setup({
+        keys = {
+          toggle_options_focus = '<C-d>'
+        }
+      })
     end
   },
 }

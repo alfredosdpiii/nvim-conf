@@ -1,6 +1,5 @@
 ------------------------------------------------
---                                            --
---    This is a main configuration file for    --
+--                                            -- This is a main configuration file for    --
 --                    EcoVim                  --
 --      Change variables which you need to    --
 --                                            --
@@ -9,7 +8,7 @@
 local icons = require("utils.icons")
 
 EcoVim = {
-	colorscheme = "moonbow",
+	colorscheme = "nvimgelion",
 	ui = {
 		float = {
 			border = "rounded",
