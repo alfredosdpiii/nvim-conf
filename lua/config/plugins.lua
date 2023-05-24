@@ -783,4 +783,8 @@ return {
       })
     end
   },
+  {
+    'MeF0504/vim-pets',
+    lazy = false
+  },
 }
