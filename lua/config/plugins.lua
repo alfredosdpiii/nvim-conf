@@ -785,6 +785,11 @@ return {
   },
   {
     'MeF0504/vim-pets',
-    lazy = false
+    lazy = false,
+    config = function()
+      vim.g.pets_default_pet = 'cat'
+      vim.g.pets_lifetime_enable = 0
+      vim.g.pets_birth_enable = 0
+    end
   },
 }
