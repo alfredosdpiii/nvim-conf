@@ -225,6 +225,7 @@ local normal_mode_mappings = {
     r = { 'refactor' },
     s = { "<cmd>SessionManager save_current_session<CR>",            'save session' },
     t = { "<cmd>TodoTrouble<CR>",                                    'todo' },
+    p = { "<cmd>Pets cat Linux<CR>  <BAR> <cmd>PetsJoin cat Duckie<CR> <BAR> <cmd>PetsJoin cat Iggy<CR>",'Linux and the gang'}
   },
 
   s = {
