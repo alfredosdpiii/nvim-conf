@@ -13,6 +13,8 @@ if not snip_status_ok then
   return
 end
 
+local copilot_status_ok, copilot_cmp_comparators = pcall(require, "copilot_cmp.comparators")
+
 require("luasnip/loaders/from_vscode").lazy_load()
 
 -- ╭──────────────────────────────────────────────────────────╮
@@ -250,14 +252,14 @@ cmp.setup({
     { name = "nvim_lua",    priority = 5 },
     { name = "path",        priority = 4 },
     { name = "calc",        priority = 3 },
-    { name = "obsidian", priority = 3 },
+    { name = "obsidian",    priority = 3 },
   },
   sorting = {
     comparators = {
       deprioritize_snippet,
       cmp.config.compare.exact,
       cmp.config.compare.locality,
-      require("copilot_cmp.comparators").prioritize,
+      copilot_cmp_comparators.prioritize,
       cmp.config.compare.score,
       cmp.config.compare.recently_used,
       cmp.config.compare.offset,
