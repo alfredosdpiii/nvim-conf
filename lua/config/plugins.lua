@@ -787,6 +787,9 @@ return {
     'MeF0504/vim-pets',
     lazy = false,
     config = function()
+      vim.cmd([[Pets cat Linux]])
+      vim.cmd([[PetsJoin cat Duckie]])
+      vim.cmd([[PetsJoin cat Iggy]])
       vim.g.pets_default_pet = 'cat'
       vim.g.pets_lifetime_enable = 0
       vim.g.pets_birth_enable = 0
