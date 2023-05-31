@@ -259,7 +259,7 @@ cmp.setup({
       deprioritize_snippet,
       cmp.config.compare.exact,
       cmp.config.compare.locality,
-      copilot_cmp_comparators.prioritize,
+      copilot_cmp_comparators.prioritize or function() end,
       cmp.config.compare.score,
       cmp.config.compare.recently_used,
       cmp.config.compare.offset,
