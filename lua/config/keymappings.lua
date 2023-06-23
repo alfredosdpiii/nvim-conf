@@ -152,3 +152,5 @@ keymap("i", "jk", "<Esc>", silent)
 keymap("n", "<leader>.", "<cmd>Telescope current_buffer_fuzzy_find<cr>", silent)
 
 keymap("n", "<leader>k", function() require("pretty_hover").hover() end)
+
+keymap("v", "<leader>r",  "<cmd>Hypersonic <cr>", silent)
