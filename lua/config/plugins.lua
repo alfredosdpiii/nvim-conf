@@ -812,4 +812,27 @@ return {
       vim.cmd([[PetsJoin cat Iggy]])
     end
   },
+  -- {
+  --   "pmizio/typescript-tools.nvim",
+  --   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  --   lazy = false,
+  --   opts = {},
+  --   config = function()
+  --     require("typescript-tools").setup {
+  --       on_attach = function()
+  --       end,
+  --       settings = {
+  --         tsserver_file_preferences = {
+  --           includeInlayParameterNameHints = "all",
+  --           includeCompletionsForModuleExports = true,
+  --           quotePreference = "auto",
+  --         },
+  --         tsserver_format_options = {
+  --           allowIncompleteCompletions = false,
+  --           allowRenameOfImportPath = false,
+  --         }
+  --       },
+  --     }
+  --   end,
+  -- }
 }
