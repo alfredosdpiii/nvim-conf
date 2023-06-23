@@ -835,4 +835,14 @@ return {
   --     }
   --   end,
   -- }
+  {
+    'tomiis4/Hypersonic.nvim',
+    cmd = "Hypersonic",
+    lazy = false,
+    config = function()
+      require('hypersonic').setup({
+        -- config
+      })
+    end
+  },
 }
