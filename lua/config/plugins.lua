@@ -845,4 +845,11 @@ return {
       })
     end
   },
+  {
+    "HampusHauffman/block.nvim",
+    lazy = false,
+    config = function()
+      require("block").setup({})
+    end
+  },
 }
