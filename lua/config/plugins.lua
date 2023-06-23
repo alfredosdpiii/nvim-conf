@@ -3,6 +3,7 @@ return {
   {
     "arturgoms/moonbow.nvim",
     lazy = false,
+    lazy = true,
     priority = 1000,
     -- config = function()
     --   -- load the colorscheme here
@@ -13,6 +14,7 @@ return {
   {
     "hachy/eva01.vim",
     lazy = false,
+    lazy = true,
     -- priority = 1000,
     -- config = function()
     --   vim.cmd.colorscheme "eva01"
@@ -29,6 +31,14 @@ return {
       vim.cmd([[colorscheme nvimgelion]])
       require("config.colorscheme")
     end,
+  },
+  {
+    "xero/miasma.nvim",
+    lazy = true,
+    -- priority = 1000,
+    -- config = function()
+    --   vim.cmd("colorscheme miasma")
+    -- end,
   },
   { "nvim-lua/plenary.nvim" },
   {
@@ -668,10 +678,13 @@ return {
     dependencies = {
       "mfussenegger/nvim-dap",
 			"nvim-treesitter/nvim-treesitter",
+      "nvim-treesitter/nvim-treesitter",
     },
     build = function()
 			if not require("nvim-treesitter.parsers").has_parser("dap_repl") then
       	vim.cmd(":TSInstall dap_repl")
+      if not require("nvim-treesitter.parsers").has_parser("dap_repl") then
+        vim.cmd(":TSInstall dap_repl")
       end
     end,
   },
