@@ -852,4 +852,9 @@ return {
       require("block").setup({})
     end
   },
+  { 
+    "cseickel/diagnostic-window.nvim",
+    lazy = false,
+    dependencies = { "MunifTanjim/nui.nvim" }
+  },
 }
