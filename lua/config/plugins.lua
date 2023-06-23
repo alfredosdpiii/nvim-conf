@@ -857,4 +857,8 @@ return {
     lazy = false,
     dependencies = { "MunifTanjim/nui.nvim" }
   },
+  {
+    "davidosomething/format-ts-errors.nvim",
+    lazy = false
+  },
 }
