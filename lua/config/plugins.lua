@@ -2,7 +2,6 @@ return {
   -- Themes
   {
     "arturgoms/moonbow.nvim",
-    lazy = false,
     lazy = true,
     priority = 1000,
     -- config = function()
@@ -13,7 +12,6 @@ return {
   },
   {
     "hachy/eva01.vim",
-    lazy = false,
     lazy = true,
     -- priority = 1000,
     -- config = function()
@@ -677,12 +675,9 @@ return {
     config = true,
     dependencies = {
       "mfussenegger/nvim-dap",
-			"nvim-treesitter/nvim-treesitter",
       "nvim-treesitter/nvim-treesitter",
     },
     build = function()
-			if not require("nvim-treesitter.parsers").has_parser("dap_repl") then
-      	vim.cmd(":TSInstall dap_repl")
       if not require("nvim-treesitter.parsers").has_parser("dap_repl") then
         vim.cmd(":TSInstall dap_repl")
       end
