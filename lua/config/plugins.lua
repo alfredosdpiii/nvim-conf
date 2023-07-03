@@ -340,13 +340,13 @@ return {
     config = true,
     cond = EcoVim.plugins.zen.enabled,
   },
-  {
-    "ggandor/lightspeed.nvim",
-    keys = "s",
-    config = function()
-      require("plugins.lightspeed")
-    end,
-  },
+  -- {
+  --   "ggandor/lightspeed.nvim",
+  --   keys = "s",
+  --   config = function()
+  --     require("plugins.lightspeed")
+  --   end,
+  -- },
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
