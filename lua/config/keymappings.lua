@@ -30,8 +30,8 @@ keymap("v", "`", "u", silent)
 keymap("v", "<A-`>", "U", silent)
 
 -- Save file by CTRL-S
-keymap("n", "<C-s>", ":w<CR>", silent)
-keymap("i", "<C-s>", "<ESC> :w<CR>", silent)
+-- keymap("n", "<C-s>", ":w<CR>", silent)
+-- keymap("i", "<C-s>", "<ESC> :w<CR>", silent)
 
 -- Telescope
 keymap("n", "<C-p>", "<CMD>lua require('plugins.telescope').project_files()<CR>")
