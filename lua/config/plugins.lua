@@ -274,21 +274,20 @@ return {
 	{ "tpope/vim-repeat", lazy = false },
 	{ "tpope/vim-speeddating", lazy = false },
 	{ "dhruvasagar/vim-table-mode", ft = { "markdown" } },
-	{
-		"mg979/vim-visual-multi",
-		keys = {
-			"<C-n>",
-			"<C-Up>",
-			"<C-Down>",
-			"<S-Up>",
-			"<S-Down>",
-			"<S-Left>",
-			"<S-Right>",
-		},
-		config = function()
-			vim.g.VM_leader = ";"
-		end,
-	},
+	-- {
+	-- 	"mg979/vim-visual-multi",
+	-- 	keys = {
+	-- 		"<C-Up>",
+	-- 		"<C-Down>",
+	-- 		"<S-Up>",
+	-- 		"<S-Down>",
+	-- 		"<S-Left>",
+	-- 		"<S-Right>",
+	-- 	},
+	-- 	config = function()
+	-- 		vim.g.VM_leader = ";"
+	-- 	end,
+	-- },
 	{
 		"nacro90/numb.nvim",
 		lazy = false,
