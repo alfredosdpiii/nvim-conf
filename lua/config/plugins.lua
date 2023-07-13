@@ -685,19 +685,19 @@ return {
     end,
   },
 
-  {
-    "jay-babu/mason-null-ls.nvim",
-    event = "BufReadPre",
-    dependencies = { "mason.nvim" },
-    config = function()
-      local mnls = require("mason-null-ls")
-      mnls.setup({
-        automatic_setup = true,
-        ensure_installed = { "stylua", "jq", "prettierd" },
-      })
-    end,
-  },
-
+  -- {
+  --   "jay-babu/mason-null-ls.nvim",
+  --   event = "BufReadPre",
+  --   dependencies = { "mason.nvim" },
+  --   config = function()
+  --     local mnls = require("mason-null-ls")
+  --     mnls.setup({
+  --       automatic_setup = true,
+  --       ensure_installed = { "stylua", "jq", "prettierd" },
+  --     })
+  --   end,
+  -- },
+  --
   {
     "epwalsh/obsidian.nvim",
     lazy = false,
