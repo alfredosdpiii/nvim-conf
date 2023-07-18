@@ -223,17 +223,17 @@ return {
       require("plugins.inlay-hints")
     end,
   },
-  {
-    "barrett-ruth/import-cost.nvim",
-    build = "sh install.sh yarn",
-    ft = {
-      "javascript",
-      "typescript",
-      "javascriptreact",
-      "typescriptreact",
-    },
-    config = true,
-  },
+  -- {
+  --   "barrett-ruth/import-cost.nvim",
+  --   build = "sh install.sh yarn",
+  --   ft = {
+  --     "javascript",
+  --     "typescript",
+  --     "javascriptreact",
+  --     "typescriptreact",
+  --   },
+  --   config = true,
+  -- },
   {
     "dmmulroy/tsc.nvim",
     cmd = { "TSC" },
