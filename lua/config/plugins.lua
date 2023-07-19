@@ -805,6 +805,7 @@ return {
       vim.g.pets_garden_width = 8
       vim.g.pets_garden_height = 8
       vim.cmd([[Pets cat Linux]])
+      vim.cmd([[PetsJoin cat Zustand]])
       vim.cmd([[PetsJoin cat Iggy]])
     end
   },
