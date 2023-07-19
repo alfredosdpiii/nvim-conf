@@ -148,6 +148,7 @@ local normal_mode_mappings = {
     d = { '<cmd>TroubleToggle<CR>',                           'local diagnostics' },
     D = { '<cmd>Telescope diagnostics wrap_results=true<CR>', 'workspace diagnostics' },
     f = { 'format' },
+    F = { '<cmd>Neoformat<CR>', 'Neoformat'},
     l = { 'line diagnostics' },
     r = { 'rename' },
     R = { 'structural replace' },
