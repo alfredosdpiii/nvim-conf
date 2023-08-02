@@ -22,12 +22,57 @@ return {
   },
   {
     'nyngwang/nvimgelion',
+    -- lazy = false,
+    -- priority = 1000,
+    -- config = function()
+    --   -- load the colorscheme here
+    --   vim.cmd([[colorscheme nvimgelion]])
+    --   require("config.colorscheme")
+    -- end,
+  },
+  {
+    'Jorengarenar/vim-darkness',
+    -- lazy = false,
+    -- priority = 1000,
+    -- config = function()
+    --   -- load the colorscheme here
+    --   vim.cmd([[colorscheme darkness]])
+    --   -- require("config.colorscheme")
+    -- end,
+  },
+  {
+    "mcchrish/zenbones.nvim",
+    -- lazy = false,
+    -- priority = 1000,
+    -- dependencies = {
+    --   "rktjmp/lush.nvim"
+    -- },
+    -- config = function()
+    --   vim.cmd([[colorscheme zenwritten]])
+    -- end,
+  },
+  {
+    'He4eT/desolate.nvim',
     lazy = false,
     priority = 1000,
+    dependencies = {
+      "rktjmp/lush.nvim"
+    },
     config = function()
-      -- load the colorscheme here
-      vim.cmd([[colorscheme nvimgelion]])
-      require("config.colorscheme")
+      -- vim.g.desolate_h = 119
+      -- vim.g.desolate_s = 100
+      -- vim.g.desolate_l = 1
+      -- vim.g.desolate_contrast = 100
+
+      vim.g.desolate_fg = '#66ff66'
+      vim.g.desolate_bg = '#000000'
+
+      vim.g.desolate_constant = '#6200eb'
+      vim.g.desolate_identifier = '#66ff66'
+      --#6200eb purp
+      --#66ff66 green
+      vim.g.desolate_statement = '#ffffff'
+      vim.cmd([[colorscheme desolate]])
     end,
   },
   {
