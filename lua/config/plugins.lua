@@ -67,11 +67,12 @@ return {
 			vim.g.desolate_fg = "#66ff66"
 			vim.g.desolate_bg = "#000000"
 
-			vim.g.desolate_constant = "#6200eb"
+			vim.g.desolate_constant = "#00FFA3"
 			vim.g.desolate_identifier = "#66ff66"
 			--#6200eb purp
 			--#66ff66 green
-			vim.g.desolate_statement = "#ffffff"
+			-- vim.g.desolate_statement = "#ffffff"
+			vim.g.desolate_statement = "#C733FF"
 			vim.cmd([[colorscheme desolate]])
 		end,
 	},
