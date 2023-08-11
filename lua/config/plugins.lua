@@ -53,29 +53,46 @@ return {
 	},
 	{
 		"He4eT/desolate.nvim",
-		lazy = false,
-		priority = 1000,
-		dependencies = {
-			"rktjmp/lush.nvim",
-		},
-		config = function()
-			-- vim.g.desolate_h = 119
-			-- vim.g.desolate_s = 100
-			-- vim.g.desolate_l = 1
-			-- vim.g.desolate_contrast = 100
-
-			vim.g.desolate_fg = "#66ff66"
-			vim.g.desolate_bg = "#000000"
-
-			vim.g.desolate_constant = "#00FFA3"
-			vim.g.desolate_identifier = "#66ff66"
-			--#6200eb purp
-			--#66ff66 green
-			-- vim.g.desolate_statement = "#ffffff"
-			vim.g.desolate_statement = "#C733FF"
-			vim.cmd([[colorscheme desolate]])
-		end,
+		-- lazy = false,
+		-- priority = 1000,
+		-- dependencies = {
+		-- 	"rktjmp/lush.nvim",
+		-- },
+		-- config = function()
+		-- 	-- vim.g.desolate_h = 119
+		-- 	-- vim.g.desolate_s = 100
+		-- 	-- vim.g.desolate_l = 1
+		-- 	-- vim.g.desolate_contrast = 100
+		--
+		-- 	vim.g.desolate_fg = "#66ff66"
+		-- 	vim.g.desolate_bg = "#000000"
+		--
+		-- 	vim.g.desolate_constant = "#00FFA3"
+		-- 	vim.g.desolate_identifier = "#66ff66"
+		-- 	--#6200eb purp
+		-- 	--#66ff66 green
+		-- 	-- vim.g.desolate_statement = "#ffffff"
+		-- 	vim.g.desolate_statement = "#C733FF"
+		-- 	vim.cmd([[colorscheme desolate]])
+		-- end,
 	},
+  -- {
+  --   "luisiacc/the-matrix.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     vim.g.background_color = "dark"
+		-- 	vim.cmd([[colorscheme thematrix]])
+  --   end,
+  -- },
+  {
+    'iruzo/matrix-nvim',
+    lazy=false,
+    priority=1000,
+    config = function()
+      vim.cmd([[colorscheme matrix]])
+    end,
+  },
 	{
 		"xero/miasma.nvim",
 		lazy = true,
@@ -388,7 +405,7 @@ return {
 		lazy = false,
 		branch = "jsx",
 		config = function()
-			require("plugins.comment")
+			require("Comment").setup()
 		end,
 	},
 	{
