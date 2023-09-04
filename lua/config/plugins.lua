@@ -1010,42 +1010,6 @@ return {
 			end
 		end,
 	},
-	-- DAP
-	{
-		"mfussenegger/nvim-dap",
-		config = function()
-			require("plugins.dap")
-		end,
-		keys = {
-			"<Leader>da",
-			"<Leader>db",
-			"<Leader>dc",
-			"<Leader>dd",
-			"<Leader>dh",
-			"<Leader>di",
-			"<Leader>do",
-			"<Leader>dO",
-			"<Leader>dt",
-		},
-		dependencies = {
-			"theHamsta/nvim-dap-virtual-text",
-			"rcarriga/nvim-dap-ui",
-			"mxsdev/nvim-dap-vscode-js",
-		},
-	},
-	{
-		"LiadOz/nvim-dap-repl-highlights",
-		config = true,
-		dependencies = {
-			"mfussenegger/nvim-dap",
-			"nvim-treesitter/nvim-treesitter",
-		},
-		build = function()
-			if not require("nvim-treesitter.parsers").has_parser("dap_repl") then
-				vim.cmd(":TSInstall dap_repl")
-			end
-		end,
-	},
 
 	-- {
 	--   "jay-babu/mason-null-ls.nvim",
